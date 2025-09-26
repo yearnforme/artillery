@@ -235,7 +235,7 @@
                 playToggle.classList.add('playing');
             }).catch(error => {
                 console.error('Playback failed:', error);
-                alert('Audio playback failed. Please check if the URL (https://files.catbox.moe/bf14ju.mp3) is correct or try again.');
+                alert('Audio playback failed.');
                 overlay.style.display = 'none';
                 mainContent.style.display = 'block';
                 footer.style.display = 'block';
@@ -267,3 +267,4 @@
     </script>
 </body>
 </html>
+
