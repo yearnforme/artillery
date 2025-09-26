@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>artillery</title>
+    <title>@artillery</title>
     <style>
         body {
             margin: 0;
@@ -11,8 +11,6 @@
             font-family: 'Arial', sans-serif;
             background: url('https://files.catbox.moe/bltrlq.gif') no-repeat center center fixed, #808080;
             background-size: cover;
-            color: #FFFFFF;
-            text-shadow: 0 0 6px #FFFFFF, 0 0 10px #FFFFFF, 0 0 14px #FFFFFF;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,38 +18,11 @@
             text-align: center;
             position: relative;
         }
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            cursor: pointer;
-        }
-        .overlay-text {
-            font-size: 2.5em;
-            color: #FFFFFF;
-            text-shadow: 0 0 6px #FFFFFF, 0 0 10px #FFFFFF, 0 0 14px #FFFFFF;
-        }
-        .container {
-            padding: 15px;
-        }
-        .main-text {
-            font-size: 1.4em;
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-        }
         .link-image {
             width: 80px;
             height: 80px;
             border-radius: 8px;
             transition: transform 0.3s;
-            margin-top: 10px;
         }
         .link-image:hover {
             transform: scale(1.05);
@@ -59,22 +30,8 @@
     </style>
 </head>
 <body>
-    <div class="overlay" id="overlay">
-        <div class="overlay-text">Click to Enter...</div>
-    </div>
-    <div class="container" id="main-content" style="display: none;">
-        <p class="main-text">Do you want a personalized link? Hit my telegram.</p>
-        <a href="https://t.me/artilleryspace" target="_blank">
-            <img src="https://files.catbox.moe/1dg9su.png" alt="Telegram Link" class="link-image">
-        </a>
-    </div>
-    <script>
-        const overlay = document.getElementById('overlay');
-        const mainContent = document.getElementById('main-content');
-        overlay.addEventListener('click', () => {
-            overlay.style.display = 'none';
-            mainContent.style.display = 'block';
-        });
-    </script>
+    <a href="https://t.me/artilleryspace" target="_blank">
+        <img src="https://files.catbox.moe/1dg9su.png" alt="Telegram Link" class="link-image">
+    </a>
 </body>
 </html>
