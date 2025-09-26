@@ -285,7 +285,7 @@
         const mainContent = document.getElementById('main-content');
         const playToggle = document.getElementById('play-toggle');
         const footer = document.getElementById('footer');
-        audio.volume = 0.5;
+        audio.volume = 1;
         overlay.addEventListener('click', () => {
             audio.play().then(() => {
                 overlay.style.display = 'none';
@@ -343,3 +343,4 @@
     </script>
 </body>
 </html>
+
