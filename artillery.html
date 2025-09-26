@@ -60,11 +60,46 @@
             box-shadow: 0 0 6px #FFFFFF, 0 0 10px #FFFFFF;
             margin-right: 20px;
         }
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
         h1 {
             font-size: 1.6em;
             margin: 0;
             position: relative;
             display: inline-block;
+        }
+        .rank-list {
+            display: flex;
+            gap: 8px;
+            margin-top: 5px;
+            justify-content: center;
+            width: fit-content;
+        }
+        .rank-img {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
+        }
+        .rank-img:hover {
+            transform: scale(1.1);
+        }
+        .tooltip {
+            position: fixed;
+            background: rgba(50, 50, 50, 0.8);
+            color: #FFFFFF;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 0.8em;
+            pointer-events: none;
+            z-index: 1000;
+            text-shadow: 0 0 4px #FFFFFF;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: none;
         }
         p.bio {
             font-size: 1em;
@@ -206,9 +241,15 @@
     <div class="container" id="main-content">
         <div class="profile-section">
             <img src="https://files.catbox.moe/iw70it.gif" alt="Profile Picture" class="profile-img">
-            <h1>artillery
-                <img src="https://files.catbox.moe/wnlb30.gif" alt="Name GIF" class="name-gif">
-            </h1>
+            <div class="profile-info">
+                <h1>artillery
+                    <img src="https://files.catbox.moe/wnlb30.gif" alt="Name GIF" class="name-gif">
+                </h1>
+                <div class="rank-list">
+                    <img src="https://files.catbox.moe/76h7vb.png" alt="Admin Rank" class="rank-img" data-tooltip="Admin">
+                    <img src="https://files.catbox.moe/vo9znk.png" alt="Premium Rank" class="rank-img" data-tooltip="Premium">
+                </div>
+            </div>
         </div>
         <div class="section">
             <h2></h2>
@@ -284,6 +325,21 @@
             currentStage = (currentStage + 1) % titleStages.length;
         }
         setInterval(updateTitle, 400);
+        const rankImages = document.querySelectorAll('.rank-img');
+        const tooltip = document.createElement('span');
+        tooltip.className = 'tooltip';
+        document.body.appendChild(tooltip);
+        rankImages.forEach(img => {
+            img.addEventListener('mousemove', (e) => {
+                tooltip.style.display = 'block';
+                tooltip.textContent = img.getAttribute('data-tooltip');
+                tooltip.style.left = `${e.clientX + 10}px`;
+                tooltip.style.top = `${e.clientY - 30}px`;
+            });
+            img.addEventListener('mouseleave', () => {
+                tooltip.style.display = 'none';
+            });
+        });
     </script>
 </body>
 </html>
