@@ -22,7 +22,6 @@
             position: relative;
             cursor: url('https://files.catbox.moe/agexd4.cur'), default;
             overflow: hidden;
-            
         }
         .container {
             max-width: 500px;
@@ -206,8 +205,12 @@
             color: #000000;
         }
         .link-image-section {
-            margin: 10px 0;
+            margin: 20px 0;
             background: transparent;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            align-items: center;
         }
         .link-image-section h2 {
             font-size: 1.4em;
@@ -215,13 +218,13 @@
             margin-bottom: 10px;
         }
         .link-image {
-            width: 80px;
-            height: 80px;
+            width: 40px;
+            height: 40px;
             border-radius: 8px;
             transition: transform 0.3s;
         }
         .link-image:hover {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -238,7 +241,7 @@
                 </h1>
                 <div class="rank-list">
                     <img src="https://files.catbox.moe/cq8b5l.png" alt="Manager Rank" class="rank-img" data-tooltip="Manager">
-					<img src="https://files.catbox.moe/76h7vb.png" alt="Admin Rank" class="rank-img" data-tooltip="Admin">
+                    <img src="https://files.catbox.moe/76h7vb.png" alt="Admin Rank" class="rank-img" data-tooltip="Admin">
                     <img src="https://files.catbox.moe/vo9znk.png" alt="Premium Rank" class="rank-img" data-tooltip="Premium">
                 </div>
             </div>
@@ -260,8 +263,14 @@
         </div>
         <div class="link-image-section">
             <h2></h2>
+            <a href="https://t.me/yourtelegramhandle" target="_blank">
+                <img src="https://files.catbox.moe/wmhvv4.png" alt="Telegram Link" class="link-image" data-tooltip="Telegram">
+            </a>
+            <a href="https://discord.com/users/yourdiscordid" target="_blank">
+                <img src="https://files.catbox.moe/2soxa5.png" alt="Discord Link" class="link-image" data-tooltip="Discord">
+            </a>
             <a href="https://doxbin.com/user/bosnian" target="_blank">
-                <img src="https://files.catbox.moe/g6oevk.png" alt="Link Image" class="link-image">
+                <img src="https://files.catbox.moe/b100qh.png" alt="Doxbin Link" class="link-image" data-tooltip="Doxbin">
             </a>
         </div>
         <audio id="background-audio" loop>
@@ -316,10 +325,11 @@
         }
         setInterval(updateTitle, 400);
         const rankImages = document.querySelectorAll('.rank-img');
+        const linkImages = document.querySelectorAll('.link-image');
         const tooltip = document.createElement('span');
         tooltip.className = 'tooltip';
         document.body.appendChild(tooltip);
-        rankImages.forEach(img => {
+        [...rankImages, ...linkImages].forEach(img => {
             img.addEventListener('mousemove', (e) => {
                 tooltip.style.display = 'block';
                 tooltip.textContent = img.getAttribute('data-tooltip');
@@ -333,6 +343,3 @@
     </script>
 </body>
 </html>
-
-
-
