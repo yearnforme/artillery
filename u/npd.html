@@ -33,6 +33,9 @@
             z-index: -1;
             opacity: 0;
         }
+        audio#background-music {
+            display: none;
+        }
         .container {
             max-width: 550px;
             padding: 25px;
@@ -197,11 +200,17 @@
 </head>
 <body>
     <video id="background-video" loop playsinline muted>
-        <source src="https://files.catbox.moe/5l4jd5.mp4" type="video/mp4">
+        <source src="https://files.catbox.moe/e23phb.mp4" type="video/mp4">
     </video>
+
+    <audio id="background-music" loop>
+        <source src="https://files.catbox.moe/b24lp8.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="overlay" id="overlay">
         <div class="overlay-text">Click to Enter...</div>
     </div>
+
     <div class="container" id="main-content">
         <div class="profile-section">
             <img src="https://files.catbox.moe/5mnmm8.png" alt="Profile Picture" class="profile-img">
@@ -226,18 +235,27 @@
             </a>
         </div>
     </div>
+
     <p class="footer" id="footer">@2025 Artillery.space</p>
+
     <script>
         const overlay = document.getElementById('overlay');
         const mainContent = document.getElementById('main-content');
         const footer = document.getElementById('footer');
         const video = document.getElementById('background-video');
+        const audio = document.getElementById('background-music');
         
         overlay.addEventListener('click', () => {
-            video.muted = false; // Unmute the video
-            video.play(); // Start video playback
+            // Unmute and play video
+            video.muted = false;
+            video.play();
             video.style.transition = 'opacity 1s ease-in-out';
             video.style.opacity = '1';
+
+            // Play music
+            audio.play();
+
+            // Fade out overlay
             overlay.style.opacity = '0';
             setTimeout(() => {
                 overlay.style.display = 'none';
@@ -261,9 +279,7 @@
             container.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
         });
         
-        const titleStages = [
-            "@", "@n", "@np", "@npd", "@np", "@n", "@"
-        ];
+        const titleStages = ["@", "@n", "@np", "@npd", "@np", "@n", "@"];
         let currentStage = 0;
         function updateTitle() {
             document.title = titleStages[currentStage];
@@ -289,4 +305,3 @@
     </script>
 </body>
 </html>
-
