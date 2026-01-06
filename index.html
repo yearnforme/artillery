@@ -8,64 +8,60 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background: url('https://files.catbox.moe/lwlr3g.png') no-repeat center center fixed, #808080;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: #000000;
             min-height: 100vh;
-            text-align: center;
-            position: relative;
-            cursor: url('https://files.catbox.moe/plns6m.cur'), default;
+            overflow: hidden;
         }
-        .link-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-        .link-image:hover {
-            transform: scale(1.05);
-        }
-        .footer {
-            font-size: 0.8em;
-            color: #FFFFFF;
-            text-shadow: 0 0 6px #FFFFFF, 0 0 10px #FFFFFF, 0 0 14px #FFFFFF;
+        .spinning-image {
             position: absolute;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
+            animation: spin 5s linear infinite;
+            max-width: 200px;
+            max-height: 200px;
+            width: auto;
+            height: auto;
         }
-        .footer-links {
-            font-size: 0.8em;
-            color: #FF0000;
-            text-shadow: 0 0 6px #FF0000, 0 0 10px #FF0000, 0 0 14px #FF0000;
-            position: absolute;
+        .spinning-image.top-left {
+            top: 50px;
+            left: 50px;
+        }
+        .spinning-image.top-right {
+            top: 50px;
+            right: 50px;
+        }
+        .spinning-image.bottom-left {
             bottom: 50px;
-            width: 100%;
-            text-align: center;
+            left: 50px;
         }
-        .footer-links a {
-            color: #FF0000;
-            text-decoration: none;
-            margin: 0 10px;
+        .spinning-image.bottom-right {
+            bottom: 50px;
+            right: 50px;
         }
-        .footer-links a:hover {
-            text-decoration: underline;
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .center-gif {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 500px;
+            max-height: 500px;
+            width: auto;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <a href="https://t.me/artilleryspace" target="_blank">
-        <img src="https://files.catbox.moe/1dg9su.png" alt="Telegram Link" class="link-image">
-    </a>
-    <div class="footer-links">
-        <a href="https://antipred.com/" target="_blank">https://antipred.com/</a>
-        <a href="https://artillery.space/" target="_blank">https://artillery.space/</a>
-    </div>
-    <p class="footer">@2025 Artillery.space</p>
+    <img src="https://files.catbox.moe/cfmqaf.png" alt="Spinning Image" class="spinning-image top-left">
+    <img src="https://files.catbox.moe/cfmqaf.png" alt="Spinning Image" class="spinning-image top-right">
+    <img src="https://files.catbox.moe/cfmqaf.png" alt="Spinning Image" class="spinning-image bottom-left">
+    <img src="https://files.catbox.moe/cfmqaf.png" alt="Spinning Image" class="spinning-image bottom-right">
+    <img src="https://files.catbox.moe/n6kooi.gif" alt="Center GIF" class="center-gif">
 </body>
 </html>
-
 
